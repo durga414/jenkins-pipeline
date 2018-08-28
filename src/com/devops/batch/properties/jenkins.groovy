@@ -4,12 +4,8 @@ package com.devops.batch.properties
 
 def setProperties()
 {
-    try{
-        
-    wrap([$class: 'AnsiColorBuildWrapper']) {
-          properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '5', numToKeepStr: '5')), [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false]])
-          print "\u001B[41m[ERROR] Successfully Setup the jenkins properties, please check the logs..."
-       }
+    try{        
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '5', numToKeepStr: '5')), [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false]])
     }
     catch (error) {
        wrap([$class: 'AnsiColorBuildWrapper']) {
