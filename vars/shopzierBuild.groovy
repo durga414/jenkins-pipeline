@@ -42,7 +42,7 @@ def call(body)
     }
     stage('Checkout Codebase using git'){
       try {
-       def BRANCH = "master"
+      def BRANCH = "feature/shopizer"
       g.gitCheckout("${BRANCH}")
       echo "\u001B[41m[SUCCESS] Source Code successfully downloaded"
       }
