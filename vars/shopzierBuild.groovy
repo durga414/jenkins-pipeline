@@ -42,8 +42,7 @@ def call(body)
     }
     stage('Checkout Codebase using git'){
       try {
-      def BRANCH = "feature/shopizer"
-      g.gitCheckout("${BRANCH}")
+      g.gitCheckout()
       echo "\u001B[41m[SUCCESS] Source Code successfully downloaded"
       }
       catch (Exception error)
