@@ -2,8 +2,8 @@
 
 import com.devops.batch.git.*
 import com.devops.batch.build.*
-import  com.devops.batch.tools.*
-import  com.devops.batch.properties.*
+import com.devops.batch.tools.*
+import com.devops.batch.properties.*
 
 def call(body)
 {

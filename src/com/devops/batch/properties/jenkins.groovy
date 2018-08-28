@@ -1,6 +1,6 @@
 #!/bin/groovy
 
-package com.devops.batch.propeties
+package com.devops.batch.properties
 
 def setProperties()
 {
