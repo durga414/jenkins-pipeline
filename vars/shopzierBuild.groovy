@@ -3,16 +3,33 @@
 import com.devops.batch.git.*
 import com.devops.batch.build.*
 import  com.devops.batch.tools.*
+import  com.devops.batch.properties.*
+
 def call(body)
 {
    def config = [:]
    body.resolveStrategy = Closure.DELEGATE_FIRST
    body.delegate = config
    body()
+   def jp = new jenkins()
    def g = new git()
    def j = new jdk()
    def m = new maven()
    def mb = new mavenBuild()
+   stage('Setup Jenkins Properties'){
+     try {
+            wrap([$class: 'AnsiColorBuildWrapper']) {
+            jp.setProperties()
+            }
+        }
+        catch (error)
+        {
+          wrap([$class: 'AnsiColorBuildWrapper']) {
+              echo "Propeties Initializing Failed..."
+              throw error
+          }
+        }
+   }
    stage('Preparing Devops setup'){
       try {
             wrap([$class: 'AnsiColorBuildWrapper']) {
